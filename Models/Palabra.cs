@@ -11,5 +11,11 @@ namespace TP09.Models
         private string Texto { get; set; }
         [JsonProperty]
         private int Dificultad { get; set; }
+
+        public Palabra(string t, int d)
+        {
+            this.Texto = t;
+            this.Dificultad = d;
+        }
     }
 }
