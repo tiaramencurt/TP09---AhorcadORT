@@ -8,12 +8,14 @@ namespace TP09.Models
     public class Juego
     {
         [JsonProperty]
-        private List<Palabra> ListaPalabras { get; set; }
+        public List<Palabra> ListaPalabras { get; private set; }
         [JsonProperty]
-        private List<Usuario> Jugadores { get; set; }
+        public List<Usuario> Jugadores { get; private set; }
         [JsonProperty]
-        private Usuario JugadorActual { get; set; }
-        private void LlenarListaPalabras()
+        public Usuario JugadorActual { get; private set; }
+        [JsonProperty]
+        public Palabra PalabraActual { get; private set; }
+        public void LlenarListaPalabras()
         {
             ListaPalabras = new List<Palabra>
             {
@@ -69,6 +71,24 @@ namespace TP09.Models
         {
             this.JugadorActual = new Usuario(usuario, 0);
             
+        }
+        private string ObtenerPalabraRandomPorDificultad(int dificultad)
+        {
+            List<Palabra> filtradas = new List<Palabra>();
+            for (int i = 0; i < ListaPalabras.Count; i++)
+            {
+                if (ListaPalabras[i].Dificultad == dificultad)
+                {
+                    filtradas.Add(ListaPalabras[i]);
+                }
+            }
+
+            if (filtradas.Count == 0)
+                return null;
+
+            Random rnd = new Random();
+            int indice = rnd.Next(filtradas.Count);
+            return filtradas[indice].Texto;
         }
     }
 }

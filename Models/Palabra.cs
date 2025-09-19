@@ -8,9 +8,9 @@ namespace TP09.Models
     public class Palabra
     {
         [JsonProperty]
-        private string Texto { get; set; }
+        public string Texto { get; private set; }
         [JsonProperty]
-        private int Dificultad { get; set; }
+        public int Dificultad { get; private set; }
 
         public Palabra(string t, int d)
         {

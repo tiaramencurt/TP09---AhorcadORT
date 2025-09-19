@@ -8,9 +8,9 @@ namespace TP09.Models
     public class Usuario
     {
         [JsonProperty]
-        private string Nombre { get; set; }
+        public string Nombre { get; private set; }
         [JsonProperty]
-        private int CantidadIntentos { get; set; }
+        public int CantidadIntentos { get; private set; }
         public Usuario(string n, int ci)
         {
             this.Nombre = n;
