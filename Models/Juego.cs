@@ -103,7 +103,24 @@ namespace TP09.Models
         }
         public List<Usuario> DevolverListaUsuarios()
         {
-            
+            List<Usuario> listaOrdenada = new List<Usuario>();
+            for (int i = 0; i < Jugadores.Count; i++)
+            {
+                listaOrdenada.Add(Jugadores[i]);
+            }
+            for (int i = 0; i < listaOrdenada.Count - 1; i++)
+            {
+                for (int j = i + 1; j < listaOrdenada.Count; j++)
+                {
+                    if (listaOrdenada[i].CantidadIntentos > listaOrdenada[j].CantidadIntentos)
+                    {
+                        Usuario aux = listaOrdenada[i];
+                        listaOrdenada[i] = listaOrdenada[j];
+                        listaOrdenada[j] = aux;
+                    }
+                }
+            }
+            return listaOrdenada;
         }
     }
 }
