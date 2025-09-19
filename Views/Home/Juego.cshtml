@@ -14,8 +14,8 @@
         <input type="hidden" id="palabraReal" value="@ViewBag.Palabra.Texto" />
         <input type="hidden" id="intentos" name="intentos" value="@ViewBag.Intentos" />
         <input type="text" id="inputLetraPalabra" class="form-control d-inline-block w-auto" placeholder="Letra o palabra" required />
-        <button type="button" class="btn btn-success" id="btnArriesgarLetra" onclick="EscribirNumero(0)">Arriesgar Letra</button>
-        <button type="button" class="btn btn-info" id="btnArriesgarPalabra" onclick="EscribirNumero(0)">Arriesgar Palabra</button>
+        <button type="button" class="btn btn-success" id="btnArriesgarLetra" onclick="ArriesgarLetra()">Arriesgar Letra</button>
+        <button type="button" class="btn btn-info" id="btnArriesgarPalabra" onclick="ArriesgarPalabra()">Arriesgar Palabra</button>
     </form>
     <div class="mt-4">
         <strong>Letras arriesgadas:</strong>
