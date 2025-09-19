@@ -1,20 +1,42 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TP09.Models;
 
-namespace TP09.Controllers;
-
-public class HomeController : Controller
+namespace TP09___AhorcadORT.Controllers
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    public class HomeController : Controller
     {
-        _logger = logger;
-    }
+        public IActionResult Index()
+        {
+            Juego juego;
+            if(HttpContext.Session.GetString("juego") == null)
+            {
+                juego = new Juego();
+                HttpContext.Session.SetString("juego", Objeto.ObjectToString<Juego>(juego));
+            }else
+            {
+                juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
+            }
+            ViewBag.Jugadores = juego.Jugadores;
+            return View();
+        }
 
-    public IActionResult Index()
-    {
-        return View();
+        [HttpPost]
+        public IActionResult Comenzar(string username, int dificultad)
+        {
+            Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
+            juego.InicializarJuego(username, dificultad);
+            HttpContext.Session.SetString("juego", Objeto.ObjectToString<Juego>(juego));
+            ViewBag.Username = juego.JugadorActual.Nombre;
+            ViewBag.Palabra = juego.PalabraActual;
+            return View("Juego");
+        }
+
+        [HttpPost]
+        public IActionResult FinJuego()
+        {
+            Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
+            juego.FinJuego();
+            return RedirectToAction("Index");
+        }
     }
 }
