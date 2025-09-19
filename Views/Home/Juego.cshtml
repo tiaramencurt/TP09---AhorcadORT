@@ -10,7 +10,7 @@
             <p class="letra oculto">_</p>
         }
     </div>
-    <form action='@Url.Action("FinJuego", "Home")' id="formJuego" autocomplete="off">
+    <form id="formJuego" autocomplete="off">
         <input type="hidden" id="palabraReal" value="@ViewBag.Palabra.Texto" />
         <input type="hidden" id="intentos" name="intentos" value="@ViewBag.Intentos" />
         <input type="text" id="inputLetraPalabra" class="form-control d-inline-block w-auto" placeholder="Letra o palabra" required />
@@ -21,5 +21,9 @@
         <strong>Letras arriesgadas:</strong>
         <p id="letrasArriesgadas"></p>
     </div>
+    <form id="finJuego" action='@Url.Action("FinJuego", "Home")' method="post">
+    <button type="submit" class="btn btn-primary">Terminar juego</button>
+    </form>
+
 </div>
 <script src="~/js/juego.js"></script>

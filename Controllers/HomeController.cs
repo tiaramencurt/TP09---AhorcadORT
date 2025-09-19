@@ -30,7 +30,6 @@ namespace TP09.Controllers
             ViewBag.Palabra = juego.PalabraActual;
             return View("Juego");
         }
-
         [HttpPost]
         public IActionResult FinJuego()
         {

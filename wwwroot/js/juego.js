@@ -26,8 +26,8 @@ function verificarVictoria() {
         setTimeout(function ()
         {
             alert('¡Felicitaciones! Adivinaste la palabra "' + palabraReal + '" en ' + intentos + ' intentos.');
-            document.getElementById('formJuego').submit();
         }, 100);
+        document.getElementById('finJuego').submit();
     }
 }
 function ArriesgarLetra() {
@@ -83,10 +83,9 @@ function ArriesgarLetra() {
         {
             mostrarPalabra();
             setTimeout(function () {
-                alert('¡Perdiste! La palabra era "' + palabraReal + '"');
-                window.location.href = '/';
+                alert('Perdiste, la palabra era "' + palabraReal + '"');
             }, 100);
-            document.getElementById('formJuego').submit();
+            document.getElementById('finJuego').submit();
         }
         input.value = '';
 };
