@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TP09.Models;
 
-namespace TP09___AhorcadORT.Controllers
+namespace TP09.Controllers
 {
     public class HomeController : Controller
     {

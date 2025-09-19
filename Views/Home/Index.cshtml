@@ -3,10 +3,8 @@
 }
 
 <div class="text-center">
-    <img src="~/images/logo.png" alt="Logo del juego" style="height:100px;" />
-    <h1>AhorcadORT</h1>
-    <form asp-action="Comenzar" method="post" class="form-inline justify-content-center">
-        <input type="text" name="username" placeholder="Nombre de usuario" required class="form-control mr-2" />
+    <form action='@Url.Action("Comenzar", "Home")' method="post" class="form-inline justify-content-center">
+        <input type="text" name="username" placeholder="Username" required class="form-control mr-2" />
         <select name="dificultad" class="form-control mr-2">
             <option value=1>Fácil</option>
             <option value=2>Intermedio</option>
@@ -38,6 +36,6 @@
     }
     else
     {
-        <p>No hay jugadores registrados aún.</p>
+        <p>No hay jugadores registrados.</p>
     }
 </div>

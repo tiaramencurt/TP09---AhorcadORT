@@ -5,26 +5,21 @@
     <h2>Bienvenido, @ViewBag.Username</h2>
     <h4>¡Adivina la palabra!</h4>
     <div id="palabra" class="palabra-grande">
-        @for (int i = 0; i < ViewBag.Palabra.Count; i++)
+        @for (int i = 0; i < ViewBag.Palabra.Texto.Length; i++)
         {
-            <span class="letra oculto">_</span>
+            <p class="letra oculto">_</p>
         }
     </div>
     <form id="formJuego" autocomplete="off">
         <input type="hidden" id="palabraReal" value="@ViewBag.Palabra" />
         <input type="hidden" id="intentos" name="intentos" value="@ViewBag.Intentos" />
-        <input type="text" id="inputLetraPalabra" maxlength="20" class="form-control d-inline-block w-auto" placeholder="Letra o palabra" required />
+        <input type="text" id="inputLetraPalabra" class="form-control d-inline-block w-auto" placeholder="Letra o palabra" required />
         <button type="button" class="btn btn-success" id="btnArriesgarLetra">Arriesgar Letra</button>
         <button type="button" class="btn btn-info" id="btnArriesgarPalabra">Arriesgar Palabra</button>
-        <button type="button" id="btnFin" class="btn btn-primary d-none">Finalizar</button>
-        <button type="button" id="btnVolver" class="btn btn-secondary d-none" onclick="window.location.href='@Url.Action("Index", "Home")'">Volver a competir</button>
     </form>
     <div class="mt-4">
         <strong>Letras arriesgadas:</strong>
-        <span id="letrasArriesgadas"></span>
+        <p id="letrasArriesgadas"></p>
     </div>
 </div>
-
-@section Scripts {
-    <script src="~/js/juego.js"></script>
-}
+<script src="~/js/juego.js"></script>
