@@ -83,9 +83,10 @@ function ArriesgarLetra() {
         {
             mostrarPalabra();
             setTimeout(function () {
-                alert('¡Incorrecto! La palabra era "' + palabraReal + '".');
+                alert('¡Perdiste! La palabra era "' + palabraReal + '"');
                 window.location.href = '/';
             }, 100);
+            document.getElementById('formJuego').submit();
         }
         input.value = '';
 };
