@@ -70,9 +70,15 @@ namespace TP09.Models
         public void InicializarJuego(string usuario, int dificultad)
         {
             this.JugadorActual = new Usuario(usuario, 0);
-            
+            this.Jugadores = new List<Usuario>{JugadorActual};
+            LlenarListaPalabras();
+            this.PalabraActual = ObtenerPalabraRandomPorDificultad(dificultad);
+            if(this.PalabraActual == null)
+            {
+                this.PalabraActual = ObtenerPalabraRandomPorDificultad(1);
+            }        
         }
-        private string ObtenerPalabraRandomPorDificultad(int dificultad)
+        private Palabra ObtenerPalabraRandomPorDificultad(int dificultad)
         {
             List<Palabra> filtradas = new List<Palabra>();
             for (int i = 0; i < ListaPalabras.Count; i++)
@@ -84,11 +90,12 @@ namespace TP09.Models
             }
 
             if (filtradas.Count == 0)
+            {
                 return null;
-
+            }
             Random rnd = new Random();
             int indice = rnd.Next(filtradas.Count);
-            return filtradas[indice].Texto;
+            return filtradas[indice];
         }
     }
 }
