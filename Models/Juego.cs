@@ -15,6 +15,13 @@ namespace TP09.Models
         public Usuario JugadorActual { get; private set; }
         [JsonProperty]
         public Palabra PalabraActual { get; private set; }
+        public Juego()
+        {
+            LlenarListaPalabras();
+            this.Jugadores = new List<Usuario>();
+            this.JugadorActual = null;
+            this.PalabraActual = null;
+        }
         private void LlenarListaPalabras()
         {
             ListaPalabras = new List<Palabra>
@@ -70,8 +77,6 @@ namespace TP09.Models
         public void InicializarJuego(string usuario, int dificultad)
         {
             this.JugadorActual = new Usuario(usuario, 0);
-            this.Jugadores = new List<Usuario>();
-            LlenarListaPalabras();
             this.PalabraActual = CargarPalabra(dificultad);
             if(this.PalabraActual == null)
             {
