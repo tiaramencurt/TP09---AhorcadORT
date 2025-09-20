@@ -16,5 +16,9 @@ namespace TP09.Models
             this.Nombre = n;
             this.CantidadIntentos = ci;
         }
+        public void ActualizarCantidadIntentos(int intentos)
+        {
+            this.CantidadIntentos = intentos;
+        }
     }
 }
