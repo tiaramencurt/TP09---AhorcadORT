@@ -31,10 +31,12 @@ namespace TP09.Controllers
             return View("Juego");
         }
         [HttpPost]
-        public IActionResult FinJuego()
+        public IActionResult FinJuego(int intentos)
         {
             Juego juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
+            juego.JugadorActual.CantidadIntentos = intentos;
             juego.FinJuego();
+            HttpContext.Session.SetString("juego", Objeto.ObjectToString<Juego>(juego));
             return RedirectToAction("Index");
         }
     }

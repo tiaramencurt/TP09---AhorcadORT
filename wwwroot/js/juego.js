@@ -2,7 +2,7 @@ let palabraReal = document.getElementById('palabraReal').value.toUpperCase();
 let palabra = palabraReal.split('');
 let palabraMostrada = [];
 let letrasArriesgadas = [];
-let intentos = parseInt(document.getElementById('intentos').value);
+let intentos = parseInt(document.getElementById('intentosFinal').value);
 for (let i = 0; i < palabra.length; i++) {
     palabraMostrada.push('_');
 }
@@ -20,7 +20,7 @@ function mostrarLetrasArriesgadas() {
 }
 
 function actualizarIntentos() {
-    document.getElementById('intentos').value = intentos;
+    document.getElementById('intentosFinal').value = intentos;
 }
 
 function verificarVictoria() {
