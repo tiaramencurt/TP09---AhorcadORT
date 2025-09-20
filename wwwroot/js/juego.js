@@ -26,8 +26,8 @@ function actualizarIntentos() {
 function verificarVictoria() {
     if (palabraMostrada.join('') === palabra.join('')) 
     {
-        alert('¡Felicitaciones! Adivinaste la palabra "' + palabraReal + '" en ' + intentos + ' intentos.');
-        document.getElementById('finJuego').submit();
+    alert('¡Felicitaciones! Adivinaste la palabra "' + palabraReal + '" en ' + intentos + ' intentos.');
+    document.getElementById('finJuego').submit();
     }
 }
 
