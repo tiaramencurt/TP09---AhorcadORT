@@ -3,10 +3,10 @@ let palabra = palabraReal.split('');
 let palabraMostrada = [];
 let letrasArriesgadas = [];
 let intentos = parseInt(document.getElementById('intentos').value);
-let juegoTerminado = false;
 for (let i = 0; i < palabra.length; i++) {
     palabraMostrada.push('_');
 }
+
 function mostrarPalabra() {
     let palabraDiv = document.getElementById('palabra');
     palabraDiv.innerHTML = '';
@@ -14,22 +14,26 @@ function mostrarPalabra() {
         palabraDiv.innerHTML += '<p class="letra">' + palabraMostrada[i] + '</p>';
     }
 }
+
 function mostrarLetrasArriesgadas() {
     document.getElementById('letrasArriesgadas').innerHTML = letrasArriesgadas.join(' - ');
 }
+
 function actualizarIntentos() {
     document.getElementById('intentos').value = intentos;
 }
+
 function verificarVictoria() {
     if (palabraMostrada.join('') === palabra.join('')) {
-        juegoTerminado = true;
-        setTimeout(function ()
+        setTimeout(
+        function ()
         {
             alert('¡Felicitaciones! Adivinaste la palabra "' + palabraReal + '" en ' + intentos + ' intentos.');
-        }, 100);
+        }, 1000);
         document.getElementById('finJuego').submit();
     }
 }
+
 function ArriesgarLetra() {
     let input = document.getElementById('inputLetraPalabra');
     let letra = input.value.trim().toUpperCase();
@@ -60,35 +64,37 @@ function ArriesgarLetra() {
             input.value = '';
         }
 };
-    function ArriesgarPalabra() 
+
+function ArriesgarPalabra() 
+{
+    let input = document.getElementById('inputLetraPalabra');
+    let intento = input.value.trim().toUpperCase();
+    if (intento == '') 
     {
-        let input = document.getElementById('inputLetraPalabra');
-        let intento = input.value.trim().toUpperCase();
-        if (intento == '') 
+        alert('Ingresá una palabra.');
+    }
+    intentos++;
+    actualizarIntentos();
+    if (intento === palabra.join(''))
+    {
+        for (let i = 0; i < palabra.length; i++)
         {
-            alert('Ingresá una palabra.');
+            palabraMostrada[i] = palabra[i];
         }
-        intentos++;
-        actualizarIntentos();
-        if (intento === palabra.join(''))
-        {
-            for (let i = 0; i < palabra.length; i++)
-            {
-                palabraMostrada[i] = palabra[i];
-            }
-            mostrarPalabra();
-            mostrarLetrasArriesgadas();
-            verificarVictoria();
-        }else 
-        {
-            mostrarPalabra();
-            setTimeout(function () {
-                alert('Perdiste, la palabra era "' + palabraReal + '"');
-            }, 100);
-            document.getElementById('finJuego').submit();
-        }
-        input.value = '';
+        mostrarPalabra();
+        mostrarLetrasArriesgadas();
+        verificarVictoria();
+    }else 
+    {
+        mostrarPalabra();
+        setTimeout(function () {
+            alert('Perdiste, la palabra era "' + palabraReal + '"');
+        }, 1000);
+        document.getElementById('finJuego').submit();
+    }
+    input.value = '';
 };
+
 mostrarPalabra();
 mostrarLetrasArriesgadas();
 actualizarIntentos();
