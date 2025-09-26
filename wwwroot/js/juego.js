@@ -26,8 +26,8 @@ function actualizarIntentos() {
 function verificarVictoria() {
     if (palabraMostrada.join('') === palabra.join('')) 
     {
-    alert('¡Felicitaciones! Adivinaste la palabra "' + palabraReal + '" en ' + intentos + ' intentos.');
-    document.getElementById('finJuego').submit();
+        alert('¡Felicitaciones! Adivinaste la palabra "' + palabraReal + '" en ' + intentos + ' intentos.');
+        document.getElementById('finJuego').submit();
     }
 }
 
@@ -84,8 +84,8 @@ function ArriesgarPalabra()
     }else 
     {
         mostrarPalabra();
-        alert('Perdiste, la palabra era "' + palabraReal + '"');
-        document.getElementById('finJuego').submit();
+        let div = document.getElementById('div-juego');
+        div.innerHTML = `<h1>Perdiste, la palabra era "${palabraReal}" </h1>`;
     }
     input.value = '';
 };
