@@ -28,6 +28,7 @@ namespace TP09.Controllers
             HttpContext.Session.SetString("juego", Objeto.ObjectToString<Juego>(juego));
             ViewBag.Username = juego.JugadorActual.Nombre;
             ViewBag.Palabra = juego.PalabraActual;
+            ViewBag.Intentos = juego.JugadorActual.CantidadIntentos;
             return View("Juego");
         }
         [HttpPost]
