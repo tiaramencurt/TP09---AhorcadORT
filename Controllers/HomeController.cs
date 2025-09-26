@@ -16,7 +16,7 @@ namespace TP09.Controllers
             {
                 juego = Objeto.StringToObject<Juego>(HttpContext.Session.GetString("juego"));
             }
-            ViewBag.Jugadores = juego.Jugadores;
+            ViewBag.Jugadores = juego.DevolverListaUsuarios();
             return View();
         }
 
