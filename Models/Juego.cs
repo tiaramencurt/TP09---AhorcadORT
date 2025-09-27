@@ -37,7 +37,6 @@ namespace TP09.Models
                 new Palabra("luz", 1),
                 new Palabra("agua", 1),
 
-                // Dificultad 2 (10 palabras)
                 new Palabra("camion", 2),
                 new Palabra("escuela", 2),
                 new Palabra("montaña", 2),
@@ -49,7 +48,6 @@ namespace TP09.Models
                 new Palabra("pelota", 2),
                 new Palabra("botella", 2),
 
-                // Dificultad 3 (10 palabras)
                 new Palabra("murcielago", 3),
                 new Palabra("computadora", 3),
                 new Palabra("bicicleta", 3),
@@ -61,7 +59,6 @@ namespace TP09.Models
                 new Palabra("electricidad", 3),
                 new Palabra("microondas", 3),
 
-                // Dificultad 4 (10 palabras)
                 new Palabra("otorrinolaringologo", 4),
                 new Palabra("desoxirribonucleico", 4),
                 new Palabra("electroencefalograma", 4),
