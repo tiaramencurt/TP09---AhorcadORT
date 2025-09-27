@@ -66,13 +66,13 @@ function ArriesgarPalabra()
 {
     let input = document.getElementById('inputLetraPalabra');
     let intento = input.value.trim().toUpperCase();
+    intentos++;
+    actualizarIntentos();
     if (intento == '') 
     {
         alert('Ingresá una palabra.');
     }
-    intentos++;
-    actualizarIntentos();
-    if (intento === palabra.join(''))
+    else if (intento === palabra.join(''))
     {
         for (let i = 0; i < palabra.length; i++)
         {
