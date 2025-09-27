@@ -5,10 +5,6 @@
     <h2>Bienvenido, @ViewBag.Username</h2>
     <h4>¡Adivina la palabra!</h4>
     <div id="palabra" class="palabra-grande">
-        @for (int i = 0; i < ViewBag.Palabra.Texto.Length; i++)
-        {
-            <p class="letra oculto">_</p>
-        }
     </div>
     <form id="formJuego" autocomplete="off">
         <input type="hidden" id="palabraReal" value="@ViewBag.Palabra.Texto" />
